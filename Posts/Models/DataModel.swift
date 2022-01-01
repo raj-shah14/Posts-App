@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct MainResponse : Codable{
-    let Post: Post
-    let Votes: Int
-}
-
 struct User: Codable {
     let id: Int
     let first_name:String
@@ -28,3 +23,10 @@ struct Post: Codable {
     let created_at: String
     let user: User
 }
+
+struct MainResponse : Codable {
+    let Post: Post
+    let Votes: Int
+}
+
+
