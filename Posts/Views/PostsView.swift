@@ -29,43 +29,7 @@ struct PostsView: View {
                 List(posts, id: \.Post.id) { item in
                     VStack(alignment: .leading)
                     {
-                        Text(item.Post.user.first_name + " " + item.Post.user.last_name)
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(Color.black)
-                            .padding(.bottom,0)
-                        Text(item.Post.created_at)
-                            .font(.caption)
-                            .bold()
-                            .padding(.bottom,2)
-                            .foregroundColor(Color.black)
-                        Text(item.Post.title)
-                            .multilineTextAlignment(.leading)
-                            .font(.headline)
-                            .padding(.bottom,1)
-                            .foregroundColor(Color.black)
-                        
-                        Text(item.Post.content)
-                            .multilineTextAlignment(.leading)
-                            .frame(width: 240, height: 80, alignment: .leading)
-                            .font(.title3)
-                            .padding(.bottom,-5)
-                            .foregroundColor(Color.black)
-                        
-                        HStack{
-                            Button(action:{
-                                //TODO: Get votes
-                                print(item.Post.id)
-                            })
-                            {
-                            Image(systemName: isClicked ? "hand.thumbsup.fill" : "hand.thumbsup")
-                                .foregroundColor(Color.black)
-                            }
-                            .buttonStyle(PlainButtonStyle())
-                            Text(String(item.Votes))
-                                .foregroundColor(Color.black)
-                        
-                        }
+                        ItemRowView(post: item)
                     }
                     .swipeActions {
                         Button(action: {
